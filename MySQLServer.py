@@ -1,5 +1,5 @@
 import mysql.connector
-from mysql.connector import Error
+import Error
 
 try:
     mydb = mysql.connector.connect(
@@ -14,7 +14,7 @@ try:
         mycursor.execute(query)
         print("Database 'alx_book_store' created successfully!")
 
-except Error as e:
+except mysql.connector.Error as e:
     print(f"Error: {e}")
 finally:
     if mydb.is_connected():
